@@ -23,10 +23,10 @@ public class Main {
         System.out.println("\nПерелёты без сегментов с прилётом раньше вылета:");
         flightsFilteredByArrival.forEach(System.out::println);
 
-        // 3. Фильтр перелётов с временем на земле более двух часов
-        Filter groundTimeExceedsFilter = new GroundTimeExceedsFilter();
-        List<Flight> flightsFilteredByGroundTime = groundTimeExceedsFilter.apply(flights);
-        System.out.println("\nПерелёты без времени на земле более двух часов:");
+        // Фильтр 3: исключаем перелёты, где время на земле превышает 2 часа
+        Filter groundTimeExceedsTwoHoursFilter = new GroundTimeExceedsTwoHoursFilter();
+        List<Flight> flightsFilteredByGroundTime = groundTimeExceedsTwoHoursFilter.apply(flights);
+        System.out.println("\nПерелёты, где общее время на земле не превышает 2 часов:");
         flightsFilteredByGroundTime.forEach(System.out::println);
     }
 }
